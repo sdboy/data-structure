@@ -4,21 +4,21 @@
 /**
  * @brief 初始化顺序表
  */
-int sequence_list_init(SequenceList *L) {
-  if (L != NULL) {
+int sequence_list_init(SequenceList **L) {
+  if (*L != NULL) {
     return STATUS_ERROR;
   }
-  L = (SequenceList *)malloc(sizeof(SequenceList));
-  if (L == NULL) {
-    free(L);
+  *L = (SequenceList *)malloc(sizeof(SequenceList));
+  if (*L == NULL) {
+    free(*L);
     return STATUS_ERROR;
   }
-  L->data = (ElementType *)malloc((SEQUENCE_LIST_MAX_SIZE) * sizeof(ElementType));
-  if (L->data == NULL) {
-    free(L);
+  (*L)->data = (ElementType *)malloc(SEQUENCE_LIST_MAX_SIZE * sizeof(ElementType));
+  if ((*L)->data == NULL) {
+    free(*L);
     return STATUS_ERROR;
   }
-  L->length = 0;
+  (*L)->length = 0;
   return STATUS_OK;
 }
 
@@ -68,12 +68,14 @@ int sequence_list_get(SequenceList *L, int i, ElementType *e) {
  * @brief 在顺序表第i个位置插入元素e
  */
 int sequence_list_insert(SequenceList *L, int i, ElementType e) {
+  int c = L->length;
   if (L == NULL || i < 1 || i > L->length + 1) {
     return STATUS_ERROR;
   }
   if (L->length >= SEQUENCE_LIST_MAX_SIZE) {
     return STATUS_ERROR;
   }
+  
   for (int j = L->length; j >= i; j--) {
     L->data[j] = L->data[j - 1];
   }

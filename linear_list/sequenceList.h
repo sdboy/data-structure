@@ -14,7 +14,7 @@ typedef struct sequence_list
 	int length;
 }SequenceList;
 
-int sequence_list_init(SequenceList *L);
+int sequence_list_init(SequenceList **L);
 int sequence_list_destroy(SequenceList *L);
 int sequence_list_is_empty(SequenceList *L);
 int sequence_list_length(SequenceList *L);
