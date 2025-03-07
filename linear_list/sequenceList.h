@@ -1,5 +1,5 @@
-#ifndef __SEQUENCE_LIST_H__
-#define __SEQUENCE_LIST_H__
+#ifndef _SEQUENCE_LIST_H
+#define _SEQUENCE_LIST_H
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -14,15 +14,15 @@ typedef struct sequence_list
 	int length;
 }SequenceList;
 
-int sequence_list_init(SequenceList **L);
-int sequence_list_destroy(SequenceList *L);
-int sequence_list_is_empty(SequenceList *L);
-int sequence_list_length(SequenceList *L);
-int sequence_list_get(SequenceList *L, int i, ElementType *e);
-int sequence_list_insert(SequenceList *L, int i, ElementType e);
-int sequence_list_delete(SequenceList *L, int i, ElementType *e);
-int sequence_list_locate(SequenceList *L, ElementType e);
-int sequence_list_clear(SequenceList *L);
-int sequence_list_update(SequenceList *L, int i, ElementType e);
+int SequenceListInit(SequenceList **L);
+int SequenceListDestroy(SequenceList **L);
+int SequenceListIsEmpty(SequenceList *L);
+int SequenceListLength(SequenceList *L, int *length);
+int SequenceListGet(SequenceList *L, int i, ElementType *e);
+int SequenceListInsert(SequenceList *L, int i, ElementType e);
+int SequenceListDelete(SequenceList *L, int i, ElementType *e);
+int SequenceListLocate(SequenceList *L, ElementType e, int *index);
+int SequenceListClear(SequenceList *L);
+int SequenceListUpdate(SequenceList *L, int i, ElementType e);
 
 #endif
