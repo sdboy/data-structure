@@ -4,6 +4,9 @@
 
 int main(int, char**){
   // SequenceListTest();
-  return 0;
+  LinkListTest();
 
+
+  
+  return 0;
 }

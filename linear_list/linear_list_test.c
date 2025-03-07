@@ -1,5 +1,7 @@
 #include "linear_list_test.h"
 
+
+
 void SequenceListTest() {
   
   SequenceList *L = NULL;
@@ -67,4 +69,96 @@ void SequenceListTest() {
   }else{
     printf("sequence list destroy failed\n");
   }
+
+}
+
+void LinkListTest() {
+  LinkList link_list = NULL;
+  if(InitList(&link_list) == STATUS_OK) {
+    printf("link list init success\n");
+  }else{
+    printf("link list init failed\n");
+  }
+
+  int is_empty = 0;
+  // if(ListIsEmpty(link_list, &is_empty) == STATUS_OK) {
+  //   printf("link list %d\n", is_empty);
+  // } else {
+  //   printf("link list failed\n");
+  // }
+
+  srand(time(0));
+  // for(int i = 0; i < 12; i++) {
+  //   ElementType e = rand() % 100 + 1;
+  //   if(HeadInsert(link_list, e) == STATUS_OK) {
+  //     printf("head insert success\n");
+  //   } else {
+  //     printf("head insert failed\n");
+  //     break;
+  //   }
+  // }
+  
+  for(int i = 0; i < 4; i++) {
+    ElementType e = rand() % 100 + 1;
+    if(TailInsert(link_list, e) == STATUS_OK) {
+      printf("tail insert success\n");
+    } else {
+      printf("tail insert failed\n");
+      break;
+    }
+  }
+
+  if(ClearList(link_list) ==STATUS_OK) {
+    printf("clear success\n");
+  } else {
+    printf("clear failed\n");
+  }
+
+  // if(ListIsEmpty(link_list, &is_empty) == STATUS_OK) {
+  //   printf("link list %d\n", is_empty);
+  // } else {
+  //   printf("link list failed\n");
+  // }
+
+  // if(ListInsert(link_list, 2, 6) == STATUS_OK) {
+  //   printf("insert success\n");
+  // } else {
+  //   printf("insert failed\n");
+  // }
+
+  // ElementType elem = 0;
+  // if(ListDelete(link_list, 6, &elem) == STATUS_OK)
+  // {
+  //   printf("delete success %d\n", elem);
+  // }else {
+  //   printf("delete failed\n");
+  // }
+
+  int list_length = 0;
+  if(ListLength(link_list, &list_length) == STATUS_OK) {
+    printf("get length success %d\n", list_length);
+  } else {
+    printf("get length failed");
+  }
+
+  // ElementType et = 0;
+  // if(GetElem(link_list, 1, &et) == STATUS_OK) {
+  //   printf("get elem success %d\n", et);
+  // } else {
+  //   printf("get elem failed\n");
+  // }
+
+  // int loc = 0;
+  // if(LocateElem(link_list, 6, &loc) == STATUS_OK) {
+  //   printf("get locate success %d\n", loc);
+  // } else {
+  //   printf("get locate failed\n");
+  // }
+
+  if(DestroyList(&link_list) == STATUS_OK) {
+    printf("link list destroy success\n");
+  }else{
+    printf("link list destroy failed\n");
+  }
+
 }
