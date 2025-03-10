@@ -4,7 +4,8 @@
 
 int main(int, char**){
   // SequenceListTest();
-  LinkListTest();
+  // LinkListTest();
+  CircularLinkListTest();
 
 
   

@@ -1,7 +1,6 @@
 #include "linear_list_test.h"
 
 
-
 void SequenceListTest() {
   
   SequenceList *L = NULL;
@@ -71,6 +70,7 @@ void SequenceListTest() {
   }
 
 }
+
 
 void LinkListTest() {
   LinkList link_list = NULL;
@@ -161,4 +161,75 @@ void LinkListTest() {
     printf("link list destroy failed\n");
   }
 
+}
+
+void CircularLinkListTest() {
+  CircularLinkList cll;
+  cll.head = NULL;
+  cll.rear = NULL;
+  if(CreateCircularLinkList(&cll) == STATUS_OK) {
+    printf("create success\n");
+  }else {
+    printf("create failed\n");
+  }
+
+
+  int is_empty = 0;
+  if(IsEmptyCircularLinkList(&cll, &is_empty) == STATUS_OK) {
+    printf("query is empty success %d\n", is_empty);
+  }else {
+    printf("query is empty failed\n");
+  }
+
+  if(TailInsertCircularLinkList(&cll, 156) == STATUS_OK) {
+    printf("tail insert success\n");
+  }else {
+    printf("tail inster failed\n");
+  }
+
+  if(HeadInsertCircularLinkList(&cll, 54) == STATUS_OK) {
+    printf("head insert success\n");
+  }else {
+    printf("head inster failed\n");
+  }
+
+  if(IsEmptyCircularLinkList(&cll, &is_empty) == STATUS_OK) {
+    printf("query is empty success %d\n", is_empty);
+  }else {
+    printf("query is empty failed\n");
+  }
+
+  ElementType elem_tail = 0;
+  if(GetTailElemCircularLinkList(&cll, &elem_tail) == STATUS_OK) {
+    printf("tail elem is %d\n", elem_tail);
+  }else {
+    printf("query tail elem failed");
+  }
+  ElementType elem_head = 0;
+  
+
+  if(DeleteHeadElemCircularLinkList(&cll, &elem_head) == STATUS_OK) {
+    printf("head remove success head elem is %d\n", elem_head);
+  }else {
+    printf("head remove failed\n");
+  }
+
+  if(ClearCircularLinkList(&cll) == STATUS_OK) {
+    printf("clear success\n");
+  }else {
+    printf("clear failed\n");
+  }
+
+  elem_head = 0;
+  if(GetHeadElemCircularLinkList(&cll, &elem_head) == STATUS_OK) {
+    printf("head elem is %d\n", elem_head);
+  }else {
+    printf("query head elem failed\n");
+  }
+
+  if(DestroyCircularLinkList(&cll) == STATUS_OK) {
+    printf("destroy success\n");
+  }else {
+    printf("destroy failed\n");
+  }
 }
