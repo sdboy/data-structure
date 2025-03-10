@@ -5,8 +5,8 @@
 int main(int, char**){
   // SequenceListTest();
   // LinkListTest();
-  CircularLinkListTest();
-
+  // CircularLinkListTest();
+  DoubleLinkListTest();
 
   
   return 0;

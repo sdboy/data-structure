@@ -233,3 +233,55 @@ void CircularLinkListTest() {
     printf("destroy failed\n");
   }
 }
+
+
+void DoubleLinkListTest() {
+  DoubleLinkListNodePtr L = NULL;
+  if(InitDoubleLinkList(&L) == STATUS_OK) {
+    printf("init success\n");
+  }else {
+    printf("init success\n");
+  }
+  if(InsertToDoubleLinkList(L, 1, 2) == STATUS_OK) {
+    printf("insert success\n");
+  }else {
+    printf("insert failed\n");
+  }
+  if(InsertToDoubleLinkList(L, 2, 3) == STATUS_OK) {
+    printf("insert success\n");
+  }else {
+    printf("insert failed\n");
+  }
+  if(InsertToDoubleLinkList(L, 3, 5) == STATUS_OK) {
+    printf("insert success\n");
+  }else {
+    printf("insert failed\n");
+  }
+
+  ElementType elem = 0;
+  if(RemoveFromDoubleLinkList(L, 3, &elem) == STATUS_OK) {
+    printf("remove success %d\n", elem);
+  }else {
+    printf("remove failed\n");
+  }
+
+  if(ClearDoubleLinkList(L) == STATUS_OK) {
+    printf("clear success\n");
+  }else {
+    printf("clear failed\n");
+  }
+  
+  elem = 0;
+  if(GetElemOnDoubleLinkList(L, 1, &elem) == STATUS_OK) {
+    printf("query success %d\n", elem);
+  }else {
+    printf("query failed\n");
+  }
+  if(DestroyDoubleLinkList(&L) == STATUS_OK) {
+    printf("destroy success\n");
+  }else {
+    printf("destroy success\n");
+  }
+
+}
+
