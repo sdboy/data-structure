@@ -285,3 +285,119 @@ void DoubleLinkListTest() {
 
 }
 
+void StackTest() {
+
+  // 数组实现
+  // StackSequence *S = NULL;
+  // if(InitStackSequence(&S) == STATUS_OK) {
+  //   printf("init success\n");
+  // } else {
+  //   printf("init failed\n");
+  // }
+  
+  // for(int i = 2; i < 6; i++) {
+  //   PushSequence(S, i);
+  // }
+  // if(ClearStackSequence(S) == STATUS_OK) {
+  //   printf("clear success\n");
+  // } else {
+  //   printf("clear failed\n");
+  // }
+  // int is_empty = 0;
+  // if(StackIsEmptySequence(S, &is_empty) == STATUS_OK) {
+  //   printf("query is empty success %d\n", is_empty);
+  // } else {
+  //   printf("query is empty failed\n");
+  // }
+  // ElementType top_elem = 0;
+  // if(GetTopSequence(S, &top_elem) == STATUS_OK) {
+  //   printf("top is %d\n", top_elem);
+  // } else {
+  //   printf("get top failed\n");
+  // }
+  // if(PushSequence(S, 3) == STATUS_OK) {
+  //   printf("push success\n");
+  // } else {
+  //   printf("push failed\n");
+  // }
+  // top_elem = 0;
+  // if(PopSequence(S, &top_elem) == STATUS_OK) {
+  //   printf("pop top is %d\n", top_elem);
+  // } else {
+  //   printf("pop failed\n");
+  // }
+  // int length = 0;
+  // if(StackLengthSequence(S, &length) == STATUS_OK) {
+  //   printf("stack length is %d\n", length);
+  // } else {
+  //   printf("query stack length failed\n");
+  // }
+
+  // if(DestroyStackSequence(&S) == STATUS_OK) {
+  //   printf("destroy success\n");
+  // } else {
+  //   printf("destroy failed\n");
+  // }
+
+  // 链表实现
+  StackLink *S = NULL;
+  if(InitStackLink(&S) == STATUS_OK) {
+    printf("init success\n");
+  } else {
+    printf("init failed\n");
+  }
+  for(int i = 1; i < 4; i++) {
+    PushLink(S, i);
+  }
+  if(PushLink(S, 2) == STATUS_OK) {
+    printf("push success\n");
+  } else {
+    printf("push failed\n");
+  }
+  ElementType top_elem = 0;
+  if(GetTopLink(S, &top_elem) == STATUS_OK) {
+    printf("get top success is %d\n", top_elem);
+  } else {
+    printf("get top failed\n");
+  }
+  top_elem = 0;
+  if(PopLink(S, &top_elem) == STATUS_OK) {
+    printf("pop success top is %d\n", top_elem);
+  } else {
+    printf("pop failed\n");
+  }
+  
+  int is_empty = 1;
+  if(StackIsEmptyLink(S, &is_empty) == STATUS_OK) {
+    printf("query empty is %d\n", is_empty);
+  } else {
+    printf("query empty failed\n");
+  }
+  if(ClearStackLink(S) == STATUS_OK) {
+    printf("clear success\n");
+  } else {
+    printf("clear failed\n");
+  }
+  if(StackIsEmptyLink(S, &is_empty) == STATUS_OK) {
+    printf("query empty is %d\n", is_empty);
+  } else {
+    printf("query empty failed\n");
+  }
+  
+  
+  int length = 0;
+  if(StackLengthLink(S, &length) == STATUS_OK) {
+    printf("stack length is %d\n", length);
+  } else {
+    printf("query stack length failed\n");
+  }
+  if(DestroyStackLink(&S) == STATUS_OK) {
+    printf("destroy success\n");
+  } else {
+    printf("destroy failed\n");
+  }
+}
+
+void QueueTest();
+
+void CircularQueueTest();
