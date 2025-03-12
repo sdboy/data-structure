@@ -7,10 +7,10 @@ int main(int, char**){
   // LinkListTest();
   // CircularLinkListTest();
   // DoubleLinkListTest();
-  StackTest();
+  // StackTest();
 
-  //QueueTest();
+  // QueueTest();
 
-  //CircularQueueTest();
+  CircularQueueTest();
   return 0;
 }

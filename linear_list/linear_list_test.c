@@ -398,6 +398,108 @@ void StackTest() {
   }
 }
 
-void QueueTest();
+void QueueTest() {
+  QueueLink *Q = NULL;
+  if(InitQueueLink(&Q) == STATUS_OK) {
+    printf("init success\n");
+  } else {
+    printf("init failed\n");
+  }
+  
+  for(int i = 2; i < 5; i++) {
+    EnQueueLink(Q, i);
+  }
+  int is_empty = 0;
+  if(QueueIsEmptyLink(Q, &is_empty) == STATUS_OK) {
+    printf("query empty is %d\n", is_empty);
+  } else {
+    printf("query empty is failed\n");
+  }
+  ElementType elem = 0;
+  if(GetHeadLink(Q, &elem) == STATUS_OK) {
+    printf("get head is %d\n", elem);
+  } else {
+    printf("get head failed\n");
+  }
+  if(DeQueueLink(Q, &elem) == STATUS_OK) {
+    printf("dequeue success %d\n", elem);
+  } else {
+    printf("dequeue failed\n");
+  }
+  if(ClearQueueLink(Q) == STATUS_OK) {
+    printf("clear success\n");
+  } else {
+    printf("clear failed\n");
+  }
+  if(EnQueueLink(Q, 3) == STATUS_OK) {
+    printf("enqueue success\n");
+  } else {
+    printf("enqueu failed\n");
+  }
+  
+  
+  int length = 0;
+  if(QueueLengthLink(Q, &length) == STATUS_OK) {
+    printf("query queue length is %d\n", length);
+  } else {
+    printf("query queue length failed\n");
+  }
+  if(DestroyQueueLink(&Q) == STATUS_OK) {
+    printf("destroy success\n");
+  } else {
+    printf("destroy failed\n");
+  }
+}
 
-void CircularQueueTest();
+void CircularQueueTest() {
+  QueueSequence *Q = NULL;
+  if(InitCircularQueueSequence(&Q) == STATUS_OK) {
+    printf("init success\n");
+  }else {
+    printf("init failed\n");
+  }
+  for(int i = 3; i < 7; i++) {
+    EnCircularQueueSequence(Q, i);
+  }
+  
+  int is_empty = 0;
+  if(CircularQueueIsEmptySequence(Q, &is_empty) == STATUS_OK) {
+    printf("query empty is %d\n", is_empty);
+  }else {
+    printf("query empty failed\n");
+  }
+  ElementType elem;
+  if(GetHeadCircularSequence(Q, &elem) == STATUS_OK) {
+    printf("get head %d\n", elem);
+  }else {
+    printf("get head failed\n");
+  }
+  
+  
+  // if(DeCircularQueueSequence(Q, &elem) == STATUS_OK) {
+  //   printf("dequeue success %d\n", elem);
+  // }else {
+  //   printf("dequeue failed\n");
+  // }
+  // if(ClearCircularQueueSequence(Q) == STATUS_OK) {
+  //   printf("clear success\n");
+  // }else {
+  //   printf("clear failed\n");
+  // }
+  int length = 0;
+  if(CircularQueueLengthSequence(Q, &length) == STATUS_OK) {
+    printf("query length is %d\n", length);
+  }else {
+    printf("query length failed\n");
+  }
+  if(EnCircularQueueSequence(Q, 3) == STATUS_OK) {
+    printf("enqueue success\n");
+  }else {
+    printf("enqueue failed\n");
+  }
+  if(DestroyCircularQueueSequence(&Q) == STATUS_OK) {
+    printf("destroy success\n");
+  }else {
+    printf("destroy failed\n");
+  }
+}
