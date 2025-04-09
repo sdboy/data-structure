@@ -2,6 +2,7 @@
 #define _BINARY_TREE_ARRAY_H_
 
 #include <stdlib.h>
+#include <stdio.h>
 
 #include "tree_status_code.h"
 
@@ -16,7 +17,9 @@ typedef struct binary_tree_array
 
 int BinaryTreeArrayInit(BinaryTreeArray tree);
 int BinaryTreeArrayInsert(BinaryTreeArray tree, ElementType data, int level, int num);
-int BinaryTreeArrayBeforeQuery(BinaryTreeArray tree);
+int BinaryTreeArrayPreOrderTraverse(BinaryTreeArray tree, int i);
+int BinaryTreeArrayInOrderTraverse(BinaryTreeArray tree, int i);
+int BinaryTreeArrayPostOrderTraverse(BinaryTreeArray tree, int i);
 int BinaryTreeArrayDestroy(BinaryTreeArray tree);
 
 #endif

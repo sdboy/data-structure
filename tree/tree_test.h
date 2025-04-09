@@ -2,6 +2,7 @@
 #define _TREE_TEST_H_
 
 #include <stdlib.h>
+#include <stdio.h>
 
 #include "tree_status_code.h"
 #include "binary_tree_array.h"

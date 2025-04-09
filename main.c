@@ -13,5 +13,8 @@ int main(int, char**){
   // QueueTest();
 
   // CircularQueueTest();
+  
+  BinaryTreeArrayTest();
+  
   return 0;
 }

@@ -7,40 +7,56 @@
  */
 int BinaryTreeArrayInit(BinaryTreeArray tree) {
   if(tree == NULL) {
-    return STATUS_ERROR;
+    return TREE_STATUS_ERROR;
   }
   for(int i = 0; i < BINARY_TREE_ARRAY_MAX_SIZE; i++) {
     tree[i].data = 0;
   }
   
-  return STATUS_OK;
+  return TREE_STATUS_OK;
 }
 int BinaryTreeArrayInsert(BinaryTreeArray tree, ElementType data, int level, int num) {
   if(tree == NULL) {
-    return STATUS_ERROR;
+    return TREE_STATUS_ERROR;
   }
   if(level < 1 || num < 1 || num > 1 << (level - 1)) {
-    return STATUS_ERROR;
+    return TREE_STATUS_ERROR;
   }
   if(level > 1 && 1 << (level - 2) + num > BINARY_TREE_ARRAY_MAX_SIZE) {
-    return STATUS_ERROR;
+    return TREE_STATUS_ERROR;
   }
-  if(level == 1) {
-    tree[num - 1].data = data;
-  } else {
-    tree[1 << (level - 2) + num - 1].data = data;
+  if(level == 1 && num != 1) {
+    return TREE_STATUS_ERROR;
   }
-  return STATUS_OK;
+  tree[(1 << (level - 1)) - 1 + num - 1].data = data;
+  return TREE_STATUS_OK;
 }
-int BinaryTreeArrayBeforeQuery(BinaryTreeArray tree);
+int BinaryTreeArrayPreOrderTraverse(BinaryTreeArray tree, int i) {
+  if(tree == NULL) {
+    return TREE_STATUS_ERROR;
+  }
+  if(i < 0 || i >= BINARY_TREE_ARRAY_MAX_SIZE) {
+    return TREE_STATUS_ERROR;
+
+  }
+  if(tree[i].data != 0 && tree[i].data != -1) {
+    printf("%d ", tree[i].data);
+    BinaryTreeArrayPreOrderTraverse(tree, i * 2 + 1);
+    BinaryTreeArrayPreOrderTraverse(tree, i * 2 + 2);
+  } else {
+    return TREE_STATUS_OK;
+  }
+}
+int BinaryTreeArrayInOrderTraverse(BinaryTreeArray tree, int i);
+int BinaryTreeArrayPostOrderTraverse(BinaryTreeArray tree, int i);
 int BinaryTreeArrayDestroy(BinaryTreeArray tree) {
   if(tree == NULL) {
-    return STATUS_ERROR;
+    return TREE_STATUS_ERROR;
   }
 
   for(int i = 0; i < BINARY_TREE_ARRAY_MAX_SIZE; i++) {
     tree[i].data = 0;
   }
   
-  return STATUS_OK;
+  return TREE_STATUS_OK;
 }
