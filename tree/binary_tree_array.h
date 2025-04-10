@@ -20,6 +20,8 @@ int BinaryTreeArrayInsert(BinaryTreeArray tree, ElementType data, int level, int
 int BinaryTreeArrayPreOrderTraverse(BinaryTreeArray tree, int i);
 int BinaryTreeArrayInOrderTraverse(BinaryTreeArray tree, int i);
 int BinaryTreeArrayPostOrderTraverse(BinaryTreeArray tree, int i);
+int BinaryTreeArrayGetLevel(BinaryTreeArray tree, int i, int *level);
+int BinaryTreeArrayGetSubLevel(BinaryTreeArray tree, int i, int length);
 int BinaryTreeArrayDestroy(BinaryTreeArray tree);
 
 #endif

@@ -35,6 +35,9 @@ void BinaryTreeArrayTest() {
     ++index;
   }
   BinaryTreeArrayPreOrderTraverse(arr, 0);
+  int deepth = 0;
+  BinaryTreeArrayGetLevel(arr, 0, &deepth);
+  printf("deepth: %d\n", deepth);
   BinaryTreeArrayDestroy(arr);
 }
 
