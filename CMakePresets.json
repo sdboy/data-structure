@@ -13,6 +13,19 @@
         "CMAKE_CXX_COMPILER": "F:/mingw64/posix/bin/g++.exe",
         "CMAKE_BUILD_TYPE": "Debug"
       }
+    },
+    {
+      "name": "GCC 15.2.0 x86_64-w64-mingw32",
+      "displayName": "GCC 15.2.0 x86_64-w64-mingw32",
+      "description": "Using compilers: C = F:\\mingw64\\posix\\bin\\gcc.exe, CXX = F:\\mingw64\\posix\\bin\\g++.exe",
+      "generator": "MinGW Makefiles",
+      "binaryDir": "${sourceDir}/out/build/${presetName}",
+      "cacheVariables": {
+        "CMAKE_INSTALL_PREFIX": "${sourceDir}/out/install/${presetName}",
+        "CMAKE_C_COMPILER": "F:/mingw64/posix/bin/gcc.exe",
+        "CMAKE_CXX_COMPILER": "F:/mingw64/posix/bin/g++.exe",
+        "CMAKE_BUILD_TYPE": "Debug"
+      }
     }
   ]
 }
